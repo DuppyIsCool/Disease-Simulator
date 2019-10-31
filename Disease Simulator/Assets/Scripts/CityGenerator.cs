@@ -42,19 +42,26 @@ public class CityGenerator : MonoBehaviour
     void BuildCity(List<string> tileTags){
         float x = 0, z = 0, rowNum = 1;
         int maxPerRow = (int)Mathf.Sqrt(tileTags.Count);
-        
+        GameObject clone,building = null;
         //Loop For every tag
         foreach(string s in tileTags){
 
             //Instantiate (Create) Buildings based on tag
-            Instantiate(tile, new Vector3(x,0,z), Quaternion.identity);
+            clone = Instantiate(tile, new Vector3(x,0,z), Quaternion.identity);
+            clone.tag = s;
             if(s == "HouseTile")
-                Instantiate(house, new Vector3(x,house.transform.localScale.z/2F + 0.5F,z),Quaternion.identity);
+                building = Instantiate(house, new Vector3(x,house.transform.localScale.z/2F + 0.5F,z),Quaternion.identity);
             else if(s == "HospitalTile")
-                Instantiate(hospital, new Vector3(x,hospital.transform.localScale.z/2F + 0.5F,z),Quaternion.identity);
+                building = Instantiate(hospital, new Vector3(x,hospital.transform.localScale.z/2F + 0.5F,z),Quaternion.identity);
             else if(s == "WorkTile")
-                Instantiate(work, new Vector3(x,work.transform.localScale.z/2F + 0.5F,z),Quaternion.identity);
+                building = Instantiate(work, new Vector3(x,work.transform.localScale.z/2F + 0.5F,z),Quaternion.identity);
             
+            //Setting tile and building to parents of their empty game object (for organization)
+            if(s != "EmptyTile"){ //Can't put a building into a empty gameobject if no building is present
+                building.transform.parent = GameObject.Find("Buildings").transform;
+            }
+            clone.transform.parent = GameObject.Find("Tiles").transform;
+
             //Makes sure the position of the buildings is correct. (Can work with any tile size/building size)
             if(rowNum < maxPerRow){
                 rowNum = rowNum +1;
