@@ -8,7 +8,7 @@ Simply open the GitHub project with Unity. This project is being built with Unit
 
 ### Prerequisites
 
-Recoomaned that you have Unity2019.2.10f1
+It is reccomended that you have Unity2019.2.10f1
 
 
 ### Installing
