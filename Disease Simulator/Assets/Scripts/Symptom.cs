@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Symptom : MonoBehaviour
 {
+    // Property Backups
     private string _name;
-    private float _infectivityScore;
-    private float _severityScore;
+    private float _infectivityScore, _severityScore, _mutationRate;
 
+    // Property Declarations
     public string Name {
         get => _name;
         set {
@@ -23,20 +24,28 @@ public class Symptom : MonoBehaviour
             if(0 <= value <= 1)
                 _infectivityScore = value;
             else
-                throw new ArgumentException();
+                throw new ArgumentOutOfRangeException();
         }
     }
-
     public float SeverityScore {
         get => _severityScore;
         set {
             if(0 <= value <= 1)
                 _severityScore = value;
             else
-                throw new ArgumentException();
+                throw new ArgumentOutOfRangeException();
         }
     }
-    
+    public float MutationRate {
+        get => _mutationRate;
+        set {
+            if(0 <= value <= 1)
+                _mutationRate = value;
+            else
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
     // Start is called before the first frame update
     void Start(string n, float i, float s)
     {
