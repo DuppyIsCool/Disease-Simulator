@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CityGenerator : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class CityGenerator : MonoBehaviour
     public float emptyTileChance = 0.25F;
     public float hospitalTileChance = 0.25F;
     public float workTileChance = 0.25F;
+    public NavMeshSurface surface = null;
 
     //Tile and Building variables
     public GameObject tile;
@@ -30,7 +32,7 @@ public class CityGenerator : MonoBehaviour
         BuildTagList(tileTags);
 
         BuildCity(tileTags);
-        
+        surface.BuildNavMesh();
     }
 
     // Update is called once per frame
