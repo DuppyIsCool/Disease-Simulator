@@ -67,7 +67,5 @@ public class Disease : MonoBehaviour
 
     // Removes a symptom from symptoms
     // Returns false if it is not in symptoms
-    public bool removeSymptom(Symptom s){
-        return symptoms.Remove(s);
-    }
+    public bool removeSymptom(Symptom s) => symptoms.Remove(s);
 }
