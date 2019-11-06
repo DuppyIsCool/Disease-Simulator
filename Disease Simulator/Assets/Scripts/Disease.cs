@@ -11,7 +11,7 @@ public class Disease : MonoBehaviour
     // Property Backup
     private string _name;
 
-    // Property Definition
+    // Property Definitions
     public string Name {
         get => _name;
         set {
@@ -21,14 +21,14 @@ public class Disease : MonoBehaviour
                 _name = value;
         }
     }
-    public float totalInfectivity{
+    public float TotalInfectivity{
         get {
             float temp = 0;
             foreach(Symptom s in symptoms)
                 temp += s.InfectivityScore;
         }
     }
-    public float totalSeverity{
+    public float TotalSeverity{
         get {
             float temp = 0;
             foreach(Symptom s in symptoms)
@@ -51,7 +51,6 @@ public class Disease : MonoBehaviour
     {
         Name = n;
         symptoms = s;
-
     }
 
     // Update is called once per frame
