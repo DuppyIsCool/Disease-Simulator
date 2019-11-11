@@ -17,13 +17,14 @@ public class CityGenerator : MonoBehaviour
     public float emptyTileChance = 0.25F;
     public float hospitalTileChance = 0.25F;
     public float workTileChance = 0.25F;
-    public NavMeshSurface surface = null;
+    public NavMeshSurface surface;
 
     //Tile and Building variables
     public GameObject tile;
     public GameObject hospital;
     public GameObject house;
     public GameObject work;
+    private List<GameObject> buildings = new List<GameObject>();
     public int tileCount = 10;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class CityGenerator : MonoBehaviour
         BuildTagList(tileTags);
 
         BuildCity(tileTags);
+        manipulateSize();
         surface.BuildNavMesh();
     }
 
@@ -45,6 +47,7 @@ public class CityGenerator : MonoBehaviour
         float x = 0, z = 0, rowNum = 1;
         int maxPerRow = (int)Mathf.Sqrt(tileTags.Count);
         GameObject clone,building = null;
+        
         //Loop For every tag
         foreach(string s in tileTags){
 
@@ -61,9 +64,9 @@ public class CityGenerator : MonoBehaviour
             //Setting tile and building to parents of their empty game object (for organization)
             if(s != "EmptyTile"){ //Can't put a building into a empty gameobject if no building is present
                 building.transform.parent = GameObject.Find("Buildings").transform;
+                buildings.Add(building);
             }
             clone.transform.parent = GameObject.Find("Tiles").transform;
-
             //Makes sure the position of the buildings is correct. (Can work with any tile size/building size)
             if(rowNum < maxPerRow){
                 rowNum = rowNum +1;
@@ -96,6 +99,21 @@ public class CityGenerator : MonoBehaviour
             tileTags.Add(tag);
         }
             
+    }
+
+    void manipulateSize(){
+        int size = 0;
+        foreach(GameObject g in buildings){
+            size = (int) Random.Range(3,50);
+            if(size <= 10)
+                g.transform.localScale = new Vector3(size,size,size);
+            else
+               g.transform.localScale = new Vector3(10,size,10); 
+            Vector3 pos = g.transform.position;
+            pos.y = (float)( g.transform.localScale.y/2 + 0.5);
+            g.transform.position = pos;
+        }
+
     }
 }
 
