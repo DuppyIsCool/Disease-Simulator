@@ -9,6 +9,10 @@ TagManager:
   - HospitalTile
   - HouseTile
   - Door
+  - House
+  - Work
+  - Hospital
+  - Person
   layers:
   - Default
   - TransparentFX
