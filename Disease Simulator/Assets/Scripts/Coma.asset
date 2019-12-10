@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fecbf31fada6434b853ef5035024670, type: 3}
   m_Name: Coma
   m_EditorClassIdentifier: 
-  name: 
+  name: Coma
   infectivityRate: 0
-  lethalityRate: 0
-  mutationChance: 0
+  lethalityRate: 60
+  mutationChance: 10

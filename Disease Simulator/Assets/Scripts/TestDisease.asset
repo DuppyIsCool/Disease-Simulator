@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96102053f068f214ea80141b0a44c0f3, type: 3}
   m_Name: TestDisease
   m_EditorClassIdentifier: 
-  name: 
+  name: TestDisease
   numPeopleKilled: 0
   initialSymptoms: []

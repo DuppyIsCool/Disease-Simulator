@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fecbf31fada6434b853ef5035024670, type: 3}
   m_Name: Coughing
   m_EditorClassIdentifier: 
-  name: 
-  infectivityRate: 0
+  name: Coughing
+  infectivityRate: 0.25
   lethalityRate: 0
-  mutationChance: 0
+  mutationChance: 0.8
