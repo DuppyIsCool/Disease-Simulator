@@ -269,7 +269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 39.465, y: 51.733, z: 72.383}
 --- !u!1 &994522113
 GameObject:
@@ -533,7 +533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846586280
 GameObject:
@@ -578,7 +578,7 @@ MonoBehaviour:
   work: {fileID: 1119595366066253233, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
   personHandler: {fileID: 4411309096318244965, guid: 15f91c468bde7dd4682ad280c683fc83,
     type: 3}
-  tileCount: 9
+  tileCount: 3
 --- !u!4 &1846586282
 Transform:
   m_ObjectHideFlags: 0
