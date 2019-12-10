@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 5312441149209992673, guid: ac90c969ad3d04a41b632df944ff0b22, type: 3}
-  personcount: 100
+  personcount: 10

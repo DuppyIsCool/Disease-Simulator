@@ -568,15 +568,17 @@ MonoBehaviour:
   emptyTileChance: 0.25
   hospitalTileChance: 0.25
   workTileChance: 0.25
+  maxSize: 20
+  minSize: 3
   surface: {fileID: 986160650}
   tile: {fileID: 5040597428664272058, guid: 4ba199669aad17d4c8661aa194daae4e, type: 3}
-  hospital: {fileID: 5499862090235791538, guid: 11341edf9718d2a4ea6a0b99777ca8b8,
+  hospital: {fileID: 2572225370029325953, guid: 11341edf9718d2a4ea6a0b99777ca8b8,
     type: 3}
-  house: {fileID: 3498628009023829697, guid: 3336f2a037709e846a24d7c3342e6ecc, type: 3}
-  work: {fileID: 910163813899402610, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
+  house: {fileID: 2334295639922076343, guid: 3336f2a037709e846a24d7c3342e6ecc, type: 3}
+  work: {fileID: 1119595366066253233, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
   personHandler: {fileID: 4411309096318244965, guid: 15f91c468bde7dd4682ad280c683fc83,
     type: 3}
-  tileCount: 100
+  tileCount: 9
 --- !u!4 &1846586282
 Transform:
   m_ObjectHideFlags: 0
