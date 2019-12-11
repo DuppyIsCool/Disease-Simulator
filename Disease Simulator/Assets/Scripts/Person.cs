@@ -23,7 +23,7 @@ public class Person : MonoBehaviour
         else
              render.material.color = Color.Lerp(CureColor, CureColor, 1F);
         //Checking if person reached their destination
-        if(Vector3.Distance( agent.destination, agent.transform.position) <= 2.5F){
+        if(Vector3.Distance( agent.destination, agent.transform.position) <= 2.25F){
             render.enabled = false;
         }
     }
@@ -39,7 +39,6 @@ public class Person : MonoBehaviour
     }
 
     public void nextBuilding(){
-        print("Recieved Instructions to move to next building");
         //Reset Building
         if(currentBuilding >= 23)
             currentBuilding = 0;
@@ -49,9 +48,7 @@ public class Person : MonoBehaviour
         render.enabled = true;
         Transform building = (Transform) schedule[currentBuilding];
         target = building;
-        print("Moving to "+building.position);
         agent.SetDestination(building.position);
-        print(currentBuilding);
     }
 
     void goToHospital(){
@@ -60,6 +57,15 @@ public class Person : MonoBehaviour
         GameObject hospital = hospitals[Random.Range(0,hospitals.Count-1)];
         render.enabled = true;
         agent.SetDestination(hospital.transform.position);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Person"){
+            if(other.gameObject.GetComponent<Person>().isInfected && isInfected == false){
+                if(Random.Range(0,100) <= 3)
+                    this.isInfected = true;
+            }
+        }
     }
 
 }

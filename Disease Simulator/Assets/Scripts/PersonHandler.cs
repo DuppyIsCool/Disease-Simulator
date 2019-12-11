@@ -7,6 +7,7 @@ public class PersonHandler : MonoBehaviour
     public List<GameObject> people;
     public GameObject person;
     public int personCount,hours,days;
+    private bool spawnedInfected = false;
     public float time;
     void Start(){
         people = new List<GameObject>();
@@ -17,9 +18,14 @@ public class PersonHandler : MonoBehaviour
             GameObject house = houses[Random.Range(0,(houses.Count)-1)];
             tempPerson = Instantiate(person, new Vector3(house.transform.GetChild(1).transform.position.x+2F,house.transform.GetChild(1).transform.position.y - house.transform.GetChild(1).transform.localScale.y/2,house.transform.GetChild(1).transform.position.z), Quaternion.identity);
             tempPerson.transform.parent = GameObject.Find("People").transform;
-            if(Random.Range(0,100)<= 50)
-                tempPerson.GetComponent<Person>().isInfected = true;
             tempPerson.GetComponent<Person>().agent.SetDestination(house.transform.position);
+            if(Random.Range(0,100) <= 5){
+                tempPerson.GetComponent<Person>().isInfected = true;
+                spawnedInfected = true;
+            }
+            if(i+1 == personCount && !spawnedInfected)
+                tempPerson.GetComponent<Person>().isInfected = true;
+            tempPerson.tag = "Person";
             people.Add(tempPerson);
         }
     }

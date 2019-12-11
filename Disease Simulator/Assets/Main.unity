@@ -591,7 +591,7 @@ MonoBehaviour:
   work: {fileID: 1119595366066253233, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
   personHandler: {fileID: 1459149505109157044, guid: cad05ccc3b28f034882c27a3f70087a7,
     type: 3}
-  tileCount: 64
+  tileCount: 81
 --- !u!4 &1846586282
 Transform:
   m_ObjectHideFlags: 0
