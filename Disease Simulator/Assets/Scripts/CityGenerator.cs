@@ -26,6 +26,7 @@ public class CityGenerator : MonoBehaviour
     public GameObject house;
     public GameObject work;
     public GameObject personHandler;
+    public GameObject diseaseHandler;
     private List<GameObject> buildings = new List<GameObject>();
     public int tileCount = 10;
     // Start is called before the first frame update
@@ -44,6 +45,9 @@ public class CityGenerator : MonoBehaviour
 
         //Spawn citizens
         populateCity();
+
+        // Spawn disease
+        diseaseHandler = Instantiate(diseaseHandler, new Vector3(0,0,0), Quaternion.identity);
     }
 
     // Update is called once per frame

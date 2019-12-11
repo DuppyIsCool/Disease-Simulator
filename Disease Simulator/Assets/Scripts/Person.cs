@@ -7,6 +7,7 @@ public class Person : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform target,previousTarget;
+    public bool isInfected = false;
     private bool isInside = false;
     private Hashtable schedule = new Hashtable();
     

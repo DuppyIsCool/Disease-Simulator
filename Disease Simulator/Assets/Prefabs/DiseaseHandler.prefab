@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4411309096318244965
+--- !u!1 &3666494159444465735
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4411309096318244967}
-  - component: {fileID: 4411309096318244964}
+  - component: {fileID: 3666494159444465737}
+  - component: {fileID: 3666494159444465734}
   m_Layer: 0
-  m_Name: PeopleHandler
+  m_Name: DiseaseHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4411309096318244967
+--- !u!4 &3666494159444465737
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4411309096318244965}
+  m_GameObject: {fileID: 3666494159444465735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1839273, y: 3.011977, z: 3.05424}
+  m_LocalPosition: {x: -9.999172, y: -8.534988, z: 4.4301796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4411309096318244964
+--- !u!114 &3666494159444465734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4411309096318244965}
+  m_GameObject: {fileID: 3666494159444465735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9463c08f8229a34ead970c088c865cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 44596d6b6976465448c397105404717b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  person: {fileID: 5312441149209992673, guid: ac90c969ad3d04a41b632df944ff0b22, type: 3}
-  people: []
-  cam: {fileID: 0}
-  personcount: 10
+  mutableSymptoms:
+  - {fileID: 11400000, guid: 2fea710d056dd30479215df753ab900b, type: 2}
+  - {fileID: 11400000, guid: 339cae7ef0e7f624e8aae3460d8aa8d0, type: 2}
+  - {fileID: 11400000, guid: e8655f07c602eaf4c8f9015bec88ceac, type: 2}
+  disease: {fileID: 11400000, guid: 0d965a106fe26bd47acf99791d7db77b, type: 2}
+  personHandler: {fileID: 0}

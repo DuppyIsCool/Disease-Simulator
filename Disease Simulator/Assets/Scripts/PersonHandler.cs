@@ -65,7 +65,7 @@ public class PersonHandler : MonoBehaviour
         
     }
 
-    float getTime(){
+    public float getTime(){
         return time;
     }
 }
