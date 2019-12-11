@@ -105,7 +105,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.75
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -113,7 +113,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.25
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.25
+  m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &990000696
@@ -317,7 +317,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 39.465, y: 51.733, z: 72.383}
 --- !u!1 &994522113
 GameObject:
@@ -330,8 +330,9 @@ GameObject:
   - component: {fileID: 994522116}
   - component: {fileID: 994522115}
   - component: {fileID: 994522114}
+  - component: {fileID: 994522117}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -354,8 +355,8 @@ Camera:
   m_GameObject: {fileID: 994522113}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.45296368, g: 0.794793, b: 0.8207547, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -402,6 +403,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 21.724, y: 0, z: 0}
+--- !u!114 &994522117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994522113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685df64d9a674f7419c4dba6e76a5346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1095464185
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846586280
 GameObject:
@@ -617,7 +630,7 @@ MonoBehaviour:
   hospitalTileChance: 0.25
   workTileChance: 0.25
   maxSize: 20
-  minSize: 3
+  minSize: 5
   surface: {fileID: 986160650}
   tile: {fileID: 5040597428664272058, guid: 4ba199669aad17d4c8661aa194daae4e, type: 3}
   hospital: {fileID: 2572225370029325953, guid: 11341edf9718d2a4ea6a0b99777ca8b8,
@@ -626,7 +639,7 @@ MonoBehaviour:
   work: {fileID: 1119595366066253233, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
   personHandler: {fileID: 4411309096318244965, guid: 15f91c468bde7dd4682ad280c683fc83,
     type: 3}
-  tileCount: 9
+  tileCount: 81
 --- !u!4 &1846586282
 Transform:
   m_ObjectHideFlags: 0

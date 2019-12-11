@@ -130,9 +130,9 @@ public class CityGenerator : MonoBehaviour
         foreach(GameObject g in buildings){
 
             //Make sure size is not negative or maxSize < minSize
-            if(minSize < 0)
-                minSize = 1;
-            if(maxSize < 1 || maxSize < minSize)
+            if(minSize <= 1)
+                minSize = 2;
+            if(maxSize <= 2 || maxSize < minSize)
                 maxSize = minSize + 1;
 
             //Randomly generate size within range
