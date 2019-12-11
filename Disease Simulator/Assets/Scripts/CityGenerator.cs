@@ -17,6 +17,7 @@ public class CityGenerator : MonoBehaviour
     public float emptyTileChance = 0.25F;
     public float hospitalTileChance = 0.25F;
     public float workTileChance = 0.25F;
+    public int maxSize,minSize;
     public NavMeshSurface surface;
 
     //Tile and Building variables
@@ -30,12 +31,18 @@ public class CityGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Build tag list
         List<string> tileTags = new List<string>();
         BuildTagList(tileTags);
 
+        //Build city gameobjects
         BuildCity(tileTags);
         manipulateSize();
+
+        //Build Navigation Mesh
         surface.BuildNavMesh();
+
+        //Spawn citizens
         populateCity();
     }
 
@@ -96,8 +103,11 @@ public class CityGenerator : MonoBehaviour
 
     //Build 'tileTags' with matching percentages of tiles
     void BuildTagList(List<string> tileTags){
+        //Loop for every tile in 'tileCount'
         for(int i = 0; i < tileCount; i++){
             string tag = "Untagged";
+            
+            //Loop while the tag is Untagged, forcing it to choose one of the four tags
             while(tag == "Untagged"){
                 if(Random.value <= houseTileChance)
                     tag = "HouseTile";
@@ -108,6 +118,7 @@ public class CityGenerator : MonoBehaviour
                 else if(Random.value <= workTileChance)
                     tag = "WorkTile";
             }
+            //Add the tag to the tileTags list
             tileTags.Add(tag);
         }
             
@@ -117,14 +128,41 @@ public class CityGenerator : MonoBehaviour
     void manipulateSize(){
         int size = 0;
         foreach(GameObject g in buildings){
-            size = (int) Random.Range(3,50);
-            if(size <= 10)
-                g.transform.localScale = new Vector3(size,size,size);
-            else
-               g.transform.localScale = new Vector3(10,size,10); 
-            Vector3 pos = g.transform.position;
-            pos.y = (float)( g.transform.localScale.y/2 + 0.5);
-            g.transform.position = pos;
+
+            //Make sure size is not negative or maxSize < minSize
+            if(minSize <= 1)
+                minSize = 2;
+            if(maxSize <= 2 || maxSize < minSize)
+                maxSize = minSize + 1;
+
+            //Randomly generate size within range
+            size = (int) Random.Range(minSize,maxSize);
+            GameObject building = g.transform.GetChild(0).gameObject;
+            GameObject door = g.transform.GetChild(1).gameObject;
+            Vector3 doorSize = g.transform.localScale;
+            //If size does not break the bounding boxes of the tile, resize
+            if(size <= 10){
+                building.transform.localScale = new Vector3(size,size,size);
+            }
+            else{
+               building.transform.localScale = new Vector3(10,size,10); //Prevents buildings from expanding out of their tile
+            }
+
+            //Resize door
+            door.transform.localScale = new Vector3(doorSize.x,size/2,building.transform.localScale.z/4);
+
+            //Get a building's new resized vector position
+            Vector3 pos = building.transform.position;
+            pos.y = (float)( building.transform.localScale.y/2 + 0.5);
+
+            //Get new door position
+            Vector3 doorPos = door.transform.position;
+            doorPos.x = (pos.x + building.transform.localScale.x/2);
+            doorPos.y = (float)(pos.y/2);
+
+            //Set the buildings new vector position
+            building.transform.position = pos;
+            door.transform.position = doorPos;
         }
 
     }
@@ -138,6 +176,28 @@ public class CityGenerator : MonoBehaviour
         }
 
         return list;
+    }
+    public List<GameObject> getHospitals(){
+        List<GameObject> list = new List<GameObject>();
+        foreach(GameObject g in buildings){
+            if(g.tag == "Hospital")
+                list.Add(g);
+        }
+
+        return list;
+    }
+    public List<GameObject> getWorks(){
+        List<GameObject> list = new List<GameObject>();
+        foreach(GameObject g in buildings){
+            if(g.tag == "Work")
+                list.Add(g);
+        }
+
+        return list;
+    }
+
+    public List<GameObject> getAllBuildings(){
+        return buildings;
     }
 }
 
