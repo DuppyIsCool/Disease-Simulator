@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< Updated upstream
 --- !u!1 &3666494159444465735
+=======
+--- !u!1 &5526805895555270726
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +12,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 3666494159444465737}
   - component: {fileID: 3666494159444465734}
+=======
+  - component: {fileID: 1693799411271737913}
+  - component: {fileID: 8087770574832379717}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: DiseaseHandler
   m_TagString: Untagged
@@ -17,26 +26,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
 --- !u!4 &3666494159444465737
+=======
+--- !u!4 &1693799411271737913
+>>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 3666494159444465735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.999172, y: -8.534988, z: 4.4301796}
+=======
+  m_GameObject: {fileID: 5526805895555270726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 128.17188, y: -37.70703, z: 94.15234}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!114 &3666494159444465734
+=======
+--- !u!114 &8087770574832379717
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 3666494159444465735}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -48,4 +72,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 339cae7ef0e7f624e8aae3460d8aa8d0, type: 2}
   - {fileID: 11400000, guid: e8655f07c602eaf4c8f9015bec88ceac, type: 2}
   disease: {fileID: 11400000, guid: 0d965a106fe26bd47acf99791d7db77b, type: 2}
+=======
+  m_GameObject: {fileID: 5526805895555270726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6ea07b70fcb3649a705d911613715b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutableSymptoms:
+  - {fileID: 11400000, guid: 3189ceae3c4a61b47bccf10de24fd8c8, type: 2}
+  - {fileID: 11400000, guid: 053a927322cbb4c499ef5f6f5993914c, type: 2}
+  - {fileID: 11400000, guid: 9f4ffaf08e5f1f34c84a1cc396a55dc1, type: 2}
+  disease: {fileID: 11400000, guid: 8e6f08b138e52da43a0971751e9360d9, type: 2}
+>>>>>>> Stashed changes
   personHandler: {fileID: 0}

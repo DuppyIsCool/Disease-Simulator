@@ -14,10 +14,27 @@ public class PersonHandler : MonoBehaviour
     void Start()
     {
         people = new List<GameObject>();
+<<<<<<< Updated upstream
         cam = GameObject.Find("Camera").GetComponent<Camera>();
         cam.clearFlags = CameraClearFlags.SolidColor;
         for(int i = 0; i < personcount;i++)
             createPerson();
+=======
+        List<GameObject> houses = GameObject.Find("CityGenerator").GetComponent<CityGenerator>().getHouses();
+
+        for(int i = 0; i < personCount; i++){
+            GameObject tempPerson;
+            GameObject house = houses[Random.Range(0,(houses.Count)-1)];
+            tempPerson = Instantiate(person, new Vector3(house.transform.GetChild(1).transform.position.x+2F,house.transform.GetChild(1).transform.position.y - house.transform.GetChild(1).transform.localScale.y/2,house.transform.GetChild(1).transform.position.z), Quaternion.identity);
+            tempPerson.transform.parent = GameObject.Find("People").transform;
+            if(Random.Range(0,100)<= 50)
+                tempPerson.GetComponent<Person>().isInfected = true;
+            tempPerson.GetComponent<Person>().agent.SetDestination(house.transform.position);
+            people.Add(tempPerson);
+        }
+
+        //GameObject.Find("CityGenerator").GetComponent<CityGenerator>().GetComponent<DiseaseHandler>().myInitialize();
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -67,5 +84,13 @@ public class PersonHandler : MonoBehaviour
 
     public float getTime(){
         return time;
+    }
+
+    public int getHour(){
+        return hours;
+    }
+
+    public List<GameObject> getPeople(){
+        return people;
     }
 }

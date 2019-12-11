@@ -591,9 +591,15 @@ MonoBehaviour:
   work: {fileID: 1119595366066253233, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
   personHandler: {fileID: 4411309096318244965, guid: 15f91c468bde7dd4682ad280c683fc83,
     type: 3}
+<<<<<<< Updated upstream
   diseaseHandler: {fileID: 3666494159444465735, guid: fe6574112c7d83d44ad3defbf1183a4f,
     type: 3}
   tileCount: 20
+=======
+  tileCount: 64
+  diseaseHandler: {fileID: 5526805895555270726, guid: 2546a37792debd14d8938beb0c0377c9,
+    type: 3}
+>>>>>>> Stashed changes
 --- !u!4 &1846586282
 Transform:
   m_ObjectHideFlags: 0

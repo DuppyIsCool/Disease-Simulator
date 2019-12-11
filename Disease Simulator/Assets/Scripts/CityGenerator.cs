@@ -29,6 +29,10 @@ public class CityGenerator : MonoBehaviour
     public GameObject diseaseHandler;
     private List<GameObject> buildings = new List<GameObject>();
     public int tileCount = 10;
+
+    // JD: Creates a DiseaseHandler GameObject
+    public GameObject diseaseHandler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +50,13 @@ public class CityGenerator : MonoBehaviour
         //Spawn citizens
         populateCity();
 
+<<<<<<< Updated upstream
         // Spawn disease
         diseaseHandler = Instantiate(diseaseHandler, new Vector3(0,0,0), Quaternion.identity);
+=======
+        // JD: Initializes diseaseHandler
+        Instantiate(diseaseHandler, new Vector3(0,0,0), Quaternion.identity);
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame

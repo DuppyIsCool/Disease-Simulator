@@ -48,6 +48,7 @@ public class Person : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
     void constructSchedule(){
         List<Transform> places = new List<Transform>();
         places.Add(house.transform);
@@ -62,6 +63,22 @@ public class Person : MonoBehaviour
                 r =0;
             schedule.Add(i,places[r]);
         }
+=======
+    public void nextBuilding(){
+        //print("Recieved Instructions to move to next building");
+        //Reset Building
+        if(currentBuilding >= 23)
+            currentBuilding = 0;
+        else
+            currentBuilding += 1;
+        //Move the person to their next building in schedule
+        render.enabled = true;
+        Transform building = (Transform) schedule[currentBuilding];
+        target = building;
+        //print("Moving to "+building.position);
+        agent.SetDestination(building.position);
+        //print(currentBuilding);
+>>>>>>> Stashed changes
     }
 
     public Transform getScheduledBuilding(int hour){
