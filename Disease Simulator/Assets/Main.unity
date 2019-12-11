@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.25
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &990000696
@@ -349,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994522113}
   m_LocalRotation: {x: 0.18844688, y: -0, z: -0, w: 0.9820834}
-  m_LocalPosition: {x: 25.5, y: 37.4, z: -81.1}
+  m_LocalPosition: {x: 165.4, y: 80.76, z: -63.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -589,9 +589,9 @@ MonoBehaviour:
     type: 3}
   house: {fileID: 2334295639922076343, guid: 3336f2a037709e846a24d7c3342e6ecc, type: 3}
   work: {fileID: 1119595366066253233, guid: 5965ceccc4f854647b0c4a2f6d8edece, type: 3}
-  personHandler: {fileID: 4411309096318244965, guid: 15f91c468bde7dd4682ad280c683fc83,
+  personHandler: {fileID: 1459149505109157044, guid: cad05ccc3b28f034882c27a3f70087a7,
     type: 3}
-  tileCount: 81
+  tileCount: 64
 --- !u!4 &1846586282
 Transform:
   m_ObjectHideFlags: 0

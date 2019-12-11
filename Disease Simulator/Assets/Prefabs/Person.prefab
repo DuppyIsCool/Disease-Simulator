@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5312441149209992474}
   - component: {fileID: 5312441149209992477}
   - component: {fileID: 5312441149209992479}
+  - component: {fileID: 575760302240873311}
   - component: {fileID: 5312441149209992478}
-  - component: {fileID: -922787215409541117}
+  - component: {fileID: 610492101298130969}
   m_Layer: 8
   m_Name: Person
   m_TagString: Person
@@ -103,6 +104,22 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &575760302240873311
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312441149209992673}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &5312441149209992478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,9 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5312441149209992479}
   target: {fileID: 0}
-  house: {fileID: 0}
-  work: {fileID: 0}
---- !u!65 &-922787215409541117
+  isInfected: 0
+--- !u!65 &610492101298130969
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -195,5 +195,9 @@ public class CityGenerator : MonoBehaviour
 
         return list;
     }
+
+    public List<GameObject> getAllBuildings(){
+        return buildings;
+    }
 }
 
