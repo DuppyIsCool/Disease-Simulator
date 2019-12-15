@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersonHandler : MonoBehaviour
 {
     public GameObject person;
+<<<<<<< Updated upstream
     public List<GameObject> people;
     public Camera cam;
     private float camColor = 0.0F;
@@ -13,6 +14,12 @@ public class PersonHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+=======
+    public int personCount,hours,days,infectedCount = 0;
+    public float time;
+
+    void Start(){
+>>>>>>> Stashed changes
         people = new List<GameObject>();
 <<<<<<< Updated upstream
         cam = GameObject.Find("Camera").GetComponent<Camera>();
@@ -37,9 +44,14 @@ public class PersonHandler : MonoBehaviour
 >>>>>>> Stashed changes
     }
 
+<<<<<<< Updated upstream
     // Update is called once per frame
     void Update()
     {
+=======
+    void Update(){
+        Debug.Log("h: " + hours);
+>>>>>>> Stashed changes
         time += Time.deltaTime;
         if((int) time % 60 == 0){
             hours++;
@@ -47,6 +59,11 @@ public class PersonHandler : MonoBehaviour
         }
         if((int) hours % 24 == 0)
             days++;
+
+        if(hours >= 3 && hours % 3 == 0 && time == 0){
+            Debug.Log("3rd Day");
+            GameObject.Find("CityGenerator").GetComponent<CityGenerator>().diseaseHandler.GetComponent<DiseaseHandler>().mutateSymptoms();
+        }
     }
 
     void createPerson(){
@@ -86,6 +103,7 @@ public class PersonHandler : MonoBehaviour
         return time;
     }
 
+<<<<<<< Updated upstream
     public int getHour(){
         return hours;
     }
@@ -93,4 +111,9 @@ public class PersonHandler : MonoBehaviour
     public List<GameObject> getPeople(){
         return people;
     }
+=======
+    public int getHours(){
+        return hours;
+    }
+>>>>>>> Stashed changes
 }

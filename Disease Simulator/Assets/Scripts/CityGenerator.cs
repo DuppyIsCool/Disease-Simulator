@@ -34,6 +34,10 @@ public class CityGenerator : MonoBehaviour
     public GameObject diseaseHandler;
 
     // Start is called before the first frame update
+
+    // JD Adds DiseaseHandler
+    public GameObject diseaseHandler;
+
     void Start()
     {
         //Build tag list
@@ -46,8 +50,11 @@ public class CityGenerator : MonoBehaviour
 
         //Build Navigation Mesh
         surface.BuildNavMesh();
-
+        // JD Instantiates diseaseHandler
+        Instantiate(diseaseHandler, new Vector3(0,0,0), Quaternion.identity);
+    
         //Spawn citizens
+<<<<<<< Updated upstream
         populateCity();
 
 <<<<<<< Updated upstream
@@ -56,6 +63,9 @@ public class CityGenerator : MonoBehaviour
 =======
         // JD: Initializes diseaseHandler
         Instantiate(diseaseHandler, new Vector3(0,0,0), Quaternion.identity);
+>>>>>>> Stashed changes
+=======
+        Instantiate(personHandler, new Vector3(0,0,0),Quaternion.identity);
 >>>>>>> Stashed changes
     }
 
@@ -108,10 +118,6 @@ public class CityGenerator : MonoBehaviour
 
         }
 
-    }
-
-    void populateCity(){
-        Instantiate(personHandler, new Vector3(0,0,0),Quaternion.identity);
     }
 
     //Build 'tileTags' with matching percentages of tiles

@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 [CreateAssetMenu(fileName = "New Disease", menuName = "Disease")]
 public class Disease : ScriptableObject
+=======
+public class Disease : MonoBehaviour
+>>>>>>> Stashed changes
 {
     public new string name;
     
     public int numPeopleKilled;
 
+<<<<<<< Updated upstream
     public double totalInfectivity { get; private set; }
     public double totalLethality { get; private set; }
 
@@ -20,6 +25,20 @@ public class Disease : ScriptableObject
             symptoms = initialSymptoms;
         updateTotalInfectivity();
         updateTotalLethality();
+=======
+    public double totalInfectivity;
+    public double totalLethality;
+
+    public List<Symptom> symptoms;
+
+    void Start(){
+        symptoms.RemoveRange(0, symptoms.Count);
+        totalInfectivity = 0;
+        totalLethality = 0;
+        this.updateTotalInfectivity();
+        this.updateTotalLethality();
+        Debug.Log("Infectivity: " + totalInfectivity);
+>>>>>>> Stashed changes
     }
 
     // Updates the totalInfectivity
@@ -31,6 +50,10 @@ public class Disease : ScriptableObject
         }
         else{
             // Calculates the max and total of the infectivityRates
+<<<<<<< Updated upstream
+=======
+            Debug.Log("Calculating total infectivity");
+>>>>>>> Stashed changes
             double total = symptoms[0].infectivityRate;
             double max = symptoms[0].infectivityRate;
 
@@ -49,6 +72,10 @@ public class Disease : ScriptableObject
                 totalInfectivity = .9;
             else
                 totalInfectivity = temp;
+<<<<<<< Updated upstream
+=======
+            Debug.Log("Total Infectivity: " + totalInfectivity);
+>>>>>>> Stashed changes
         }
     }
 
@@ -84,8 +111,13 @@ public class Disease : ScriptableObject
     // Adds a symptom to symptoms
     public void addSymptom(Symptom s){
         symptoms.Add(s);
+<<<<<<< Updated upstream
         updateTotalInfectivity();
         updateTotalLethality();
+=======
+        this.updateTotalInfectivity();
+        this.updateTotalLethality();
+>>>>>>> Stashed changes
     }
 
     // Returns symptoms

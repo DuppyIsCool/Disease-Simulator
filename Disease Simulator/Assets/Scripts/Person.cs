@@ -8,6 +8,7 @@ public class Person : MonoBehaviour
     public NavMeshAgent agent;
     public Transform target,previousTarget;
     public bool isInfected = false;
+<<<<<<< Updated upstream
     private bool isInside = false;
     private Hashtable schedule = new Hashtable();
     
@@ -33,6 +34,35 @@ public class Person : MonoBehaviour
                 agent.SetDestination(o.position);
                 target = o;
            
+=======
+
+    public const double INFECTIVITY_SCALE = 1;
+    public const double LETHALITY_SCALE = 1;
+
+    void Start(){
+        GameObject.Find("CityGenerator").GetComponent<CityGenerator>().personHandler.GetComponent<PersonHandler>().infectedCount = 1;
+        render = GetComponent<Renderer>();
+        buildSchedule();
+    }
+    void Update(){
+        if(isInfected)
+            render.material.color = Color.Lerp(infectedColor, CureColor, 0.1F);
+        else
+             render.material.color = Color.Lerp(CureColor, CureColor, 1F);
+        //Checking if person reached their destination
+        if(Vector3.Distance(agent.destination, agent.transform.position) <= 0.5F){
+            render.enabled = false;
+            if(target.parent.tag == "Hospital" && isInfected){
+                if( Random.Range(0.0f,1.0f) <= getCureChance()){
+                    isInfected = false;
+                    GameObject.Find("CityGenerator").GetComponent<CityGenerator>().personHandler.GetComponent<PersonHandler>().infectedCount -= 1;
+                }
+            }
+            if((double)Random.Range(0.0f,1.0f) <= INFECTIVITY_SCALE * GameObject.Find("CityGenerator").GetComponent<CityGenerator>().diseaseHandler.GetComponent<DiseaseHandler>().disease.GetComponent<Disease>().totalLethality){
+                Destroy(this);
+                GameObject.Find("CityGenerator").GetComponent<CityGenerator>().personHandler.GetComponent<PersonHandler>().personCount -= 1;
+            }
+>>>>>>> Stashed changes
         }
     }
 
@@ -81,8 +111,32 @@ public class Person : MonoBehaviour
 >>>>>>> Stashed changes
     }
 
+<<<<<<< Updated upstream
     public Transform getScheduledBuilding(int hour){
         return (Transform) schedule[hour];
+=======
+    void goToHospital(){
+        //Go to a hospital
+        List<GameObject> hospitals = GameObject.Find("CityGenerator").GetComponent<CityGenerator>().getHospitals();
+        GameObject hospital = hospitals[Random.Range(0,hospitals.Count-1)];
+        render.enabled = true;
+        agent.SetDestination(hospital.transform.GetChild(1).transform.position);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Person"){
+            if(other.gameObject.GetComponent<Person>().isInfected && isInfected == false){
+                if((double)Random.Range(0,1.0f) <= INFECTIVITY_SCALE * GameObject.Find("CityGenerator").GetComponent<CityGenerator>().diseaseHandler.GetComponent<DiseaseHandler>().disease.GetComponent<Disease>().totalInfectivity){
+                    this.isInfected = true;
+                    GameObject.Find("CityGenerator").GetComponent<CityGenerator>().personHandler.GetComponent<PersonHandler>().infectedCount += 1; 
+                }
+            }
+        }
+    }
+
+    float getCureChance(){
+        return Random.Range(0.0f, .5f * 1 / (GameObject.Find("CityGenerator").GetComponent<CityGenerator>().personHandler.GetComponent<PersonHandler>().personCount - GameObject.Find("CityGenerator").GetComponent<CityGenerator>().personHandler.GetComponent<PersonHandler>().infectedCount));
+>>>>>>> Stashed changes
     }
     
 }

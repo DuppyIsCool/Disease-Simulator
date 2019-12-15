@@ -1,9 +1,14 @@
+<<<<<<< Updated upstream
 ﻿using System.Collections;
+=======
+using System.Collections;
+>>>>>>> Stashed changes
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DiseaseHandler : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public List<Symptom> mutableSymptoms;
 <<<<<<< Updated upstream
     public Disease disease;
@@ -97,6 +102,56 @@ public class DiseaseHandler : MonoBehaviour
             Debug.Log("Patient 0 " + patient0);
             personHandler.GetComponent<PersonHandler>().people[patient0].GetComponent<Person>().isInfected = true;
             Debug.Log("Person #" + patient0 + " isInfected " + personHandler.GetComponent<PersonHandler>().people[patient0].GetComponent<Person>().isInfected);
+>>>>>>> Stashed changes
+=======
+    public List<Symptom> mutatableSymptoms;
+    public GameObject disease;
+    public int numMutationRolls = 0;
+    public int symptomToMutate;
+
+
+    void Start(){
+        
+        Instantiate(disease, new Vector3(0,0,0), Quaternion.identity);
+        disease.GetComponent<Disease>().symptoms = new List<Symptom>();
+        disease.GetComponent<Disease>().updateTotalInfectivity();
+        disease.GetComponent<Disease>().updateTotalLethality();
+
+        foreach(Symptom s in mutatableSymptoms){
+            Debug.Log("Has " + s);
+        }
+        Debug.Log("Count: " + mutatableSymptoms.Count);
+    }
+
+    public void mutateSymptoms()
+    {        
+        Debug.Log(numMutationRolls + " In mutate symptoms: ");
+
+        foreach(Symptom s in mutatableSymptoms){
+            Debug.Log(numMutationRolls + " " + s);
+        }
+
+        double die = (double)Random.Range(0.0f,1.0f);
+        Debug.Log(numMutationRolls + "Die Roll: " + die);
+        symptomToMutate = Random.Range(0, mutatableSymptoms.Count);
+        Debug.Log(numMutationRolls + "Symptom to Mutate " + symptomToMutate);
+        Debug.Log(numMutationRolls + "Chosen symptom: " + mutatableSymptoms[symptomToMutate]);
+
+        if(disease.GetComponent<Disease>().symptoms.Contains(mutatableSymptoms[symptomToMutate])){
+            Debug.Log("Already Mutated");
+        }
+        else{
+            if(die < mutatableSymptoms[symptomToMutate].mutationChance){
+                Symptom temp = mutatableSymptoms[symptomToMutate];
+                Debug.Log(numMutationRolls + "Attempting to Mutate");
+                disease.GetComponent<Disease>().addSymptom(mutatableSymptoms[symptomToMutate]);
+                Debug.Log(numMutationRolls + "Mutated: " + disease.GetComponent<Disease>().getSymptoms()[disease.GetComponent<Disease>().getSymptoms().Count-1]);
+                Debug.Log(numMutationRolls + "Expected: " + temp);
+            }
+            else
+                Debug.Log(numMutationRolls + "Not attempting to mutate:" + mutatableSymptoms[symptomToMutate]);
+        }
+        numMutationRolls += 1;
 >>>>>>> Stashed changes
     }
 }
