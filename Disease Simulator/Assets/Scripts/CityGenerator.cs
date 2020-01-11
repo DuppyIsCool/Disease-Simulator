@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class CityGenerator : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class CityGenerator : MonoBehaviour
     public float workTileChance = 0.25F;
     public int maxSize,minSize;
     public NavMeshSurface surface;
-
+    public int peopleCount;
     //Tile and Building variables
     public GameObject tile;
     public GameObject hospital;
@@ -28,9 +29,12 @@ public class CityGenerator : MonoBehaviour
     public GameObject personHandler;
     private List<GameObject> buildings = new List<GameObject>();
     public int tileCount = 10;
+    public Cities a;
     // Start is called before the first frame update
     void Start()
     {
+        tileCount = a.tileCount;
+        peopleCount = a.popCount;
         //Build tag list
         List<string> tileTags = new List<string>();
         BuildTagList(tileTags);
@@ -49,7 +53,10 @@ public class CityGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.E)){
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(0);
+        }
     }
     //Build City
     void BuildCity(List<string> tileTags){
@@ -177,6 +184,7 @@ public class CityGenerator : MonoBehaviour
 
         return list;
     }
+	//Return list of hospitals
     public List<GameObject> getHospitals(){
         List<GameObject> list = new List<GameObject>();
         foreach(GameObject g in buildings){
@@ -186,6 +194,7 @@ public class CityGenerator : MonoBehaviour
 
         return list;
     }
+	//Return list of work buildings
     public List<GameObject> getWorks(){
         List<GameObject> list = new List<GameObject>();
         foreach(GameObject g in buildings){
@@ -195,9 +204,10 @@ public class CityGenerator : MonoBehaviour
 
         return list;
     }
-
+	//Return list of all buildings
     public List<GameObject> getAllBuildings(){
         return buildings;
     }
+
 }
 
