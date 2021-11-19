@@ -19,4 +19,4 @@ Currently, run tests with Unity's built-in project execution.
 
 ## Authors
 * **KLopez** - [DuppyIsCool](https://github.com/DuppyIsCool)
-* **JamesD** - [JamesD314](https://github.com/JamesD314)
+* **JamesD** - [ScienceMan314](https://github.com/ScienceMan314)
